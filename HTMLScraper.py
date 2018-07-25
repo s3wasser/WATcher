@@ -1,6 +1,10 @@
 import urllib2
 from bs4 import BeautifulSoup
 
+# Simple HTML scraping and parsing class using the Beautiful Soup Library
+# To use, simply instantiate and call getCourseInformationTable to get a
+# 2D array of the course information
+
 class HTMLTableParser:
 	userAgent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
 	headers = {'User-Agent': userAgent}
