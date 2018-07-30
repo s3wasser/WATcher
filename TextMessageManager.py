@@ -1,8 +1,8 @@
 from twilio.rest import Client
 
-standardPhoneNumerSize = 10
+standardPhoneNumberSize = 10
 
-class TextMessaageManager:
+class TextMessageManager:
 	
 	# SID and AuthToken from Twilio account. Supply your own to the class.
 	# twilioPhoneNum should be passed in as a string
@@ -24,3 +24,13 @@ class TextMessaageManager:
 		self.client.messages.create(to=recipientPhoneNum, 
                        				from_= self.twilioPhoneNum,
                        				body=msgBody)
+
+
+	# Helpers
+	def createCourseAvailableMsg(self, courseNum, courseSection, subject):
+		courseAvailMsg = 'LEC 00' + str(courseSection) + ' of ' + subject + ' ' + str(courseNum)
+		msgIntro = 'Hey UWaterloo Student! You\'re in luck!\n\n' + courseAvailMsg + ' is now available!\n \n'
+		msgOutro = 'What are you waiting for!? Head on over to Quest now! Godspeed my little goosling!\n -Mr. Goose'
+		finalMsg = msgIntro + msgOutro
+
+		return finalMsg
