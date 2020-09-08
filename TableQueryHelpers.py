@@ -18,7 +18,8 @@ def updateTableHeaderLocationsCols(table):
 
 def getLectureSectionRow(table, lectureNumber): # lecture number should provided as an int (i.e. LEC 001 corresponds to lectureNumber = 1)
 	for counter, courseRow in enumerate(table):
-		if (courseRow[Globals.lectureSectionCol] == 'LEC 00' + str(lectureNumber) + ' '):
+		paddedLecNum = 'LEC ' + str(lectureNumber).zfill(3)
+		if (courseRow[Globals.lectureSectionCol] == paddedLecNum + ' '):
 			return counter
 
 	return 0
